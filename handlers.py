@@ -51,7 +51,7 @@ def forward_to_user(update, context):
         'group_chat_created': False, 'supergroup_chat_created': False, 'channel_chat_created': False,
         'from': {'id': 49820636, 'first_name': 'Daniil', 'is_bot': False, 'last_name': 'Okhlopkov', 'username': 'danokhlopkov', 'language_code': 'en'}
     }"""
-    user_id = None
+    user_id = update.message.reply_to_message.forward_from.id
     if update.message.reply_to_message.forward_from:
         user_id = update.message.reply_to_message.forward_from.id
     elif REPLY_TO_THIS_MESSAGE in update.message.reply_to_message.text:
